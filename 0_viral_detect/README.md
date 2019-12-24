@@ -17,7 +17,7 @@ And import 'VirFinder' from the R command line:
 
 <b> Download & decompress reference databases  </b>  
 `wget -O input/imgvr.hmm.gz https://img.jgi.doe.gov/virus/doc/final_list.hmms.gz`  
-`wget -O input/pfam.hmm.gz ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/Pfam-A.hmm.gz`  
+`wget -O input/pfam.hmm.gz ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam31.0/Pfam-A.hmm.gz`
 `gunzip input/imgvr.hmm.gz`  
 `gunzip input/pfam.hmm.gz`  
 
@@ -29,11 +29,11 @@ FNA=input/SRS1735492.fna
 FAA=input/SRS1735492.faa  
 FFN=input/SRS1735492.ffn  
 GFF=input/SRS1735492.gff  
-`prodigal -i $FNA -a $FAA -d $FFN -p meta > $GFF` 
+`prodigal -i $FNA -a $FAA -d $FFN -p meta > $GFF`
 
 <b> Run HMMER on imgvr and pfam databases </b>  
-`hmmsearch -Z 1 --cpu 32 --noali --tblout output/imgvr.out input/imgvr.hmm $FAA`  
-`hmmsearch -Z 1 --cut_tc --cpu 32 --noali  --tblout output/pfam.out input/pfam.hmm $FAA`  
+`hmmsearch -Z 1 --cpu 32 --noali --tblout output/imgvr.out input/imgvr.hmm $FAA`
+`hmmsearch -Z 1 --cut_tc --cpu 32 --noali  --tblout output/pfam.out input/pfam.hmm $FAA`
 
 <b> Count genes hitting viral and microbial marker genes </b>  
 Each gene assigned according to its best hit E-value <1e-10. Exclude HMMs listed in exclude_hmms directory.  

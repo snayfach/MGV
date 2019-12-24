@@ -13,7 +13,7 @@ pfam_path = sys.argv[4]
 # black-listed families
 exclude = set([])
 for file in ['microbial_vpfs.list', 'plasmid_vpfs.list', 'viral_pfams.list']:
-	inpath = 'exclude_hmms/'+file
+	inpath = 'input/exclude_hmms/'+file
 	exclude.update([_.rstrip() for _ in open(inpath)])
 
 # init sequences
@@ -44,7 +44,7 @@ for dbname, hmmout in [['vpfs', vpf_path], ['pfams', pfam_path]]:
 		elif len(l.split()) < 6: continue
 		query = l.split()[0]
 		score = float(l.split()[5])
-		evalue = float(l.split()[4])/total_genes
+		evalue = float(l.split()[4])#/total_genes
 		if dbname == 'vpfs': target = l.split()[2]
 		else: target = l.split()[3]
 		if query not in hits:

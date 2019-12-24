@@ -12,7 +12,7 @@ args = vars(parser.parse_args())
 
 # read parameters
 rule_sets = {}
-for r in csv.DictReader(open('classification_rules.tsv'), delimiter='\t'):
+for r in csv.DictReader(open('input/classification_rules.tsv'), delimiter='\t'):
 	length = int(r['length'])
 	if length not in rule_sets:
 		rule_sets[length] = []
