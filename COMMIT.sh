@@ -9,6 +9,8 @@ git add 0_viral_detect/input/exclude_hmms
 git add 0_viral_detect/input/classification_rules.tsv
 git add 0_viral_detect/output/.placeholder
 
-git add 1_viral_qc/README.md
-git add 1_viral_qc/*.py
-git add 1_viral_qc/output/.placeholder
+git add 1_genome_quality/README.md
+git add 1_genome_quality/*.py
+
+git add 2_ani_cluster/README.md
+git add 2_ani_cluster/*.py

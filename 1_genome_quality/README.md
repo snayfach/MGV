@@ -1,4 +1,4 @@
-# Viral detection pipeline
+# Estimate genome quality and completeness
 
 <b>  Necessary dependencies </b>  
 DIAMOND   
@@ -21,8 +21,8 @@ FFN=../0_viral_detect/output/SRS1735492.ffn
 <b> Estimate completeness of viral contigs </b>
 * Find nearest reference with >80% AAI over >50% genes to each contig
 * Completeness based on ratio of sequence lengths
-`python completeness.py --in_fna $FNA --in_faa $FAA --out_m8 output/blastp.tsv --out_tsv output/completeness.tsv --threads 10 --min_gene_sharing 50 --min_aai 80 --db_dir complete_refs_NCBI_IMG_UGV`
+`python completeness.py --in_fna $FNA --in_faa $FAA --out_m8 blastp.tsv --out_tsv completeness.tsv --threads 10 --min_gene_sharing 50 --min_aai 80 --db_dir complete_refs_NCBI_IMG_UGV`
 
 <b> Identify circular contigs </b>
 * based on a >=20 bp non-inverted terminal repeat
-`python circularity.py --in_fna $FNA --out_tsv output/circularity.tsv --repeat_length 20`
+`python circularity.py --in_fna $FNA --out_tsv circularity.tsv --repeat_length 20`
