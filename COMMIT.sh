@@ -11,5 +11,4 @@ git add 0_viral_detect/output/.placeholder
 
 git add 1_viral_qc/README.md
 git add 1_viral_qc/*.py
-git add 1_viral_qc/input/.placeholder
 git add 1_viral_qc/output/.placeholder
