@@ -14,3 +14,12 @@ git add 1_genome_quality/*.py
 
 git add 2_ani_cluster/README.md
 git add 2_ani_cluster/*.py
+
+git add 3_aai_cluster/README.md
+git add 3_aai_cluster/*.py
+
+git add 4_marker_tree/README.md
+git add 4_marker_tree/*.py
+
+git add 5_snp_tree/README.md
+git add 5_snp_tree/*.py
