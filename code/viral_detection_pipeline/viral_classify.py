@@ -4,10 +4,9 @@ import os, csv, operator, argparse
 
 # fetch args
 parser = argparse.ArgumentParser()
-parser.add_argument('--in_features', required=True, metavar='PATH')
-parser.add_argument('--out_features', required=True, metavar='PATH')
-parser.add_argument('--in_seqs_base', required=True, metavar='PATH')
-parser.add_argument('--out_seqs_base', required=True, metavar='PATH')
+parser.add_argument('--features', required=True, metavar='PATH')
+parser.add_argument('--in_base', required=True, metavar='PATH')
+parser.add_argument('--out_base', required=True, metavar='PATH')
 args = vars(parser.parse_args())
 
 # read parameters
@@ -26,7 +25,7 @@ for r in csv.DictReader(open('input/classification_rules.tsv'), delimiter='\t'):
 # read data
 lengths = rule_sets.keys()
 rows = []
-for r in csv.DictReader(open(args['in_features']), delimiter='\t'):
+for r in csv.DictReader(open(args['features']), delimiter='\t'):
 	# filter row
 	r['length'] = int(r['length'])
 	if r['length'] < 1000:
@@ -47,8 +46,11 @@ for r in csv.DictReader(open(args['in_features']), delimiter='\t'):
 	if any(bools):
 		rows.append(r)
 
+# viral contigs
+viral_contigs = set([r['contig_id'] for r in rows])
+
 # write tabular output
-with open(args['out_features'], 'w') as out:
+with open(args['out_base']+'.tsv', 'w') as out:
 	fields = ['contig_id', 'length',
 			  'genes', 'gene_len', 'cds_density', 'switch_rate',
 			  'vfr_score', 'vfr_pvalue',
@@ -58,16 +60,30 @@ with open(args['out_features'], 'w') as out:
 		row = [str(row[f]) for f in fields]
 		out.write('\t'.join(row)+'\n')
 
+# write gff
+inpath = args['in_base']+'.gff'
+if os.path.exists(inpath):
+	outpath = args['out_base']+'.gff'
+	out = open(outpath, 'w')
+	handle = open(inpath)
+	out.write(next(handle))
+	write_flag = False
+	for line in handle:
+		if '# Sequence Data:' in line:
+			id = line.split('seqhdr=')[1].split()[0].lstrip('"')
+			if id in viral_contigs: write_flag = True
+			else: write_flag = False
+		if write_flag: out.write(line)
+
 # write sequences
 import Bio.SeqIO
-contigs = set([r['contig_id'] for r in rows])
 for type in ['fna', 'faa', 'ffn']:
-	inpath = args['in_seqs_base']+'.'+type
-	outpath = args['out_seqs_base']+'.'+type
+	inpath = args['in_base']+'.'+type
+	outpath = args['out_base']+'.'+type
 	out = open(outpath, 'w')
 	for r in Bio.SeqIO.parse(inpath, 'fasta'):
 		c = r.id if type == 'fna' else r.id.rsplit('_', 1)[0]
-		if c in contigs:
+		if c in viral_contigs:
 			out.write('>'+r.description+'\n'+str(r.seq)+'\n')
 
 

@@ -22,7 +22,9 @@ And import 'VirFinder' from the R command line:
 An example file 'input/SRS1735492.fna' has been provided. This represents metagenomic contigs for sample_id 'SRS1735492' from project 'JGI'  
 
 <b> Call viral genes </b>  
-`prodigal -i input/SRS1735492.fna -a input/SRS1735492.faa -p meta`
+`prodigal -i input/SRS1735492.fna -a input/SRS1735492.faa -d input/SRS1735492.ffn -p meta -f gff > input/SRS1735492.gff `
+
+Output files include proteins (.faa), genes (.ffn), and gene coordinates (.gff). Genes called in metagenomic mode (-p meta).
 
 <b> Run HMMER on imgvr and pfam databases </b>  
 `hmmsearch -Z 1 --cpu 32 --noali --tblout output/imgvr.out input/imgvr.hmm input/SRS1735492.faa`
@@ -52,10 +54,9 @@ Here the code scans the proteins from each genome in genomic order. It counts th
 <b> Predict viral contigs </b>  
 ```
 python viral_classify.py \
---in_features output/master_table.tsv \
---out_features output/SRS1735492.tsv \
---in_seqs_base input/SRS1735492 \
---out_seqs_base output/SRS1735492
+--features output/master_table.tsv \
+--in_base input/SRS1735492 \
+--out_base output/SRS1735492
 ```
 
 The code now classifies each sequence as viral based on its combination of viral signatures. These decisions are based on a combination of rules that are specific to different fragment lengths. Each rule is a combination of 'ANDs' (ex: a contig must have >20% viral genes and <5% of non-viral genes) and rules are combined with an 'OR' operator (ex: a contig is viral if it satisfies rule 1 OR rule 2 or rule 3). Up to 5 rule combinations are used per contig length. These rules are listed in the table 'classification_rules.tsv'
