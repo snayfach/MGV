@@ -9,5 +9,5 @@ The entire repository can be cloned using: `git clone https://github.com/snayfac
 Or downloaded here: <https://github.com/snayfach/UGV/archive/master.zip>
 
 If this data or code is useful, please cite:
-Nayfach et al. A global catalog of viral genomes from the gut microbiome. 2020. (In Review).
+Nayfach et al. Genomic landscape of the human gut virome. 2020. (In Review).
 
