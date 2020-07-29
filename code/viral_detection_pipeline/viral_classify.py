@@ -23,7 +23,7 @@ for r in csv.DictReader(open('input/classification_rules.tsv'), delimiter='\t'):
 		('switch_rate', operator.le, float(r['max_switch']))])
 
 # read data
-lengths = rule_sets.keys()
+lengths = list(rule_sets.keys())
 rows = []
 for r in csv.DictReader(open(args['features']), delimiter='\t'):
 	# filter row
