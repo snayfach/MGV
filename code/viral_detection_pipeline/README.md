@@ -38,7 +38,7 @@ Here the `-Z 1` flag is specified to make E-values comparable between databases 
 Each gene assigned according to its best hit with E-value <1e-10. We found that several of the HMMs from IMG/VR HMMs are commonly found in non-viral genomes and several of the HMMs from Pfam are commonly found in viral genomes. Those HMMs are excluded from the analysis.
 
 <b> Run VirFinder </b>  
-`Rscript virfinder.R $FNA output/virfinder.tsv`  
+`Rscript virfinder.R input/SRS1735492.fna output/virfinder.tsv`  
 
 VirFinder scores each contig using a machine-learning algorithm based on kmers  
 https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0283-5
