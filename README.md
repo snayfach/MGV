@@ -6,7 +6,7 @@
 
 3. [Cluster genomes based on ANI](ani_cluster/README.md): Average nucleotide identity (ANI) code and centroid based clustering. Used to identify species-level viral clusters
 
-4. [Cluster genomes based on AAI](ani_cluster/README.md). Average amino acid identity (AAI) code and MCL based clustering. Used to identify genus-level and family-level viral clusters
+4. [Cluster genomes based on AAI](aai_cluster/README.md). Average amino acid identity (AAI) code and MCL based clustering. Used to identify genus-level and family-level viral clusters
 
 5. [Create SNP phylogenetic trees](snp_tree/README.md). Identify SNPs in core-genome regions based on whole-genome alignments. Build phylogenetic tree based on SNPs. Used in manuscript to create strain-level phylogenies for species-level viral clusters
 

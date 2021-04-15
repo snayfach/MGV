@@ -15,12 +15,12 @@ You should be able to run the following from your command line:
 `FastTreeMP`  
 `mcl`  
 
-<b> Download viral proteins of species-level genomes from family-cluster 05 </b>  
-This is just an example using the same data analyzed in the paper. Other input data can be used
-`wget https://www.dropbox.com/s/wita7ash1o5suy3/famcluster5.faa`
+<b> Locate viral proteins of genomes from an individual clade </b>  
+
+* proteins should have headers with the format: `[GENOME_ID]_[PROTEIN_NUM]`
 
 <b> Run pipeline </b>  
-`python marker_tree.py --in_faa famcluster5.faa --out_dir out`
+`python marker_tree.py --in_faa proteins.faa --out_dir out`
 
 <b> Pipeline overview </b>  
 

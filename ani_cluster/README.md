@@ -15,11 +15,11 @@ Note that the default utility in blastn is megablast. We indicate that we wish t
 Average nucleotide identity is based on the length-weighted average DNA identity across all local alignments between each pair of genomes. This ANI estimate is comparable to MUMmer and MiSi, but much faster. The alignment fraction (AF) is computed based on the length of merged alignment coordinates relative to each genome.
 
 <b> Perform centroid-based clustering </b>  
-`python cluster.py --fna SRS1735492.fna --ani ani.tsv --out clusters.tsv --min_ani 95 --min_qcov 0 --min_tcov 50`
+`python cluster.py --fna SRS1735492.fna --ani ani.tsv --out clusters.tsv --min_ani 95 --min_qcov 0 --min_tcov 85`
 
 Clustering is performed using a greedy, centroid-based algorithm in which:
 
 1. sequences are sorted by length  
 2. the longest contig is designated as the centroid of a new cluster
-3. all contigs within 95% ANI and 50% AF are assigned to that cluster
+3. all contigs within 95% ANI and 85% AF are assigned to that cluster
 4. steps (2-3) are repeated until all sequences had been assigned to a cluster

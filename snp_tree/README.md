@@ -5,16 +5,16 @@
 * MUMmer v4.0.0beta2
 * FastTreeMP v2.1.10
 
-You should be able to run the following from your command line:
+You should be able to run the following from your command line:  
 `nucmer`  
 `FastTreeMP`  
 
-<b> Download viral genomes from species-cluster 51243 </b>  
-This is the Faecalibacterium prauznitzi phage highlighted in Fig 3. Other input data can be used  
-`wget https://www.dropbox.com/s/lblvqunl9lmsbpk/OTU-51243.tar.gz && tar -zxvf OTU-51243.tar.gz`  
+<b> Locate viral genomes for an individual viral OTU and place these into a directory. Choose one of these genomes to be the representative </b>     
+GENOMES=`my_genomes`  
+REP=`my_genomes/representative.fna`  
 
 <b> Align all genomes to a selected representative </b>  
-`python align_genomes.py --genomes OTU-51243 --ref OTU-51243/UGV-GENOME-0380053.fna --out alignments`  
+`python align_genomes.py --genomes $GENOMES --ref $REP --out alignments`  
 
 <b> Use SNPs to build multiple sequence alignment </b>  
 `python build_msa.py --in alignments --out snps.fna --max_gaps_col 50 --max_gaps_seq 50`  

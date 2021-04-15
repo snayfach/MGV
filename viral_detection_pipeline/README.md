@@ -12,14 +12,17 @@ You should be able to run the following from the command line:
 And import 'VirFinder' from the R command line:  
 `library(VirFinder)`  
 
+<b> Navigate to directory </b>  
+`cd viral_detection_pipeline`
+
 <b> Download & decompress reference databases of HMMs  </b>  
-`wget -O input/imgvr.hmm.gz https://img.jgi.doe.gov/virus/doc/final_list.hmms.gz`  
+`wget -O input/imgvr.hmm.gz https://img.jgi.doe.gov//docs/final_list.hmms.gz`  
 `wget -O input/pfam.hmm.gz ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam31.0/Pfam-A.hmm.gz`
 `gunzip input/imgvr.hmm.gz`  
 `gunzip input/pfam.hmm.gz`  
 
 <b> Locate input metagenomic assembly </b>  
-An example file 'input/SRS1735492.fna' has been provided. This represents metagenomic contigs for sample_id 'SRS1735492' from project 'JGI'  
+An example file 'input/SRS1735492.fna' has been provided. This represents metagenomic contigs for sample_id 'SRS1735492'  
 
 <b> Call viral genes </b>  
 `prodigal -i input/SRS1735492.fna -a input/SRS1735492.faa -d input/SRS1735492.ffn -p meta -f gff > input/SRS1735492.gff `
