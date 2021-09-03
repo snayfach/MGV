@@ -21,7 +21,7 @@ Amino acid identity is computed based on the average BLAST percent identity betw
 Here we're keeping edges between genomes with >=20% AAI and genomes with either 8 shared genes or at least 20% of shared genes (relative to both genomes)
 
 <b> Perform MCL-based clustering </b>  
-`mcl genus_edges.tsv -te 8 -I 2.0 --abc -o genus_clusters.txt`
+`mcl genus_edges.tsv -te 8 -I 2.0 --abc -o genus_clusters.txt`  
 `mcl family_edges.tsv -te 8 -I 1.2 --abc -o family_clusters.txt`
 
 In the output each row indictes the members belonging to each cluster (including singletons)
