@@ -1,7 +1,7 @@
 # CRISPR-spacer identification
 
 <b> Identify CRISPR arrays using CRT and PILERCR </b>  
-python identify_crispr.py -i example/GUT_GENOME147678.fna -o out -p crt
+`python identify_crispr.py -i example/GUT_GENOME147678.fna -o out`
 
 The programs CRT and PILERCR are located in the `bin` directory
 The program first splits your input sequence into chunks of 50 Mbp. This is done to limit RAM usage. Not an an issue for small genomes, but can be one for large metagenomes.
