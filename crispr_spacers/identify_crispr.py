@@ -10,7 +10,7 @@ def run_pilercr(fasta, tmpdir):
 	p = sp.Popen(cmd, shell=True, stdout=sp.PIPE, stderr=sp.PIPE)
 	o, e = p.communicate()
 	c = p.returncode
-	return o, e, c
+	return str(o,encoding='utf-8'), e, c
 
 def string_to_array(string):
 	
@@ -96,7 +96,7 @@ def run_crt(fasta, tmpdir, xmx):
 	p = sp.Popen(cmd, shell=True, stdout=sp.PIPE, stderr=sp.PIPE)
 	o, e = p.communicate()
 	c = p.returncode
-	return o, e, c
+	return str(o,encoding='utf-8'), e, c
 
 def parse_crt(out, contigs):
 	""" Parse CRT output; make sure arrays do not span 2 contigs
