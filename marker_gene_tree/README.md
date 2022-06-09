@@ -1,5 +1,7 @@
 # Marker gene phylogenetic tree
 
+Note: this code was not used to create the Caudovirales phylogeny shown in figure 4. For that, please follow the description of methods from https://doi.org/10.1038/s41564-019-0448-z. This code is useful to create a phylogeny for an order or family level viral clade. But it is not sensitive enough to find sufficient prevalent genes across an entire viral class like the Caudoviricites
+
 <b> Requirements </b>  
 
 * HMMER v3.1b2
