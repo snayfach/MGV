@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-import os, SQLtools, Bio.SeqIO, subprocess as sp, argparse
+import os, Bio.SeqIO, subprocess as sp, argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--in_faa', required=True, metavar='PATH')
@@ -77,7 +77,7 @@ if not os.path.exists(msa_dir):
 for file in os.listdir(faa_dir):
 	inpath = faa_dir+'/'+file
 	outpath = msa_dir+'/'+file
-	cmd = "famsa -t %s %s %s" % (famsa_path, args['threads'], inpath, outpath)
+    cmd = "famsa -t %s %s %s" % (args['threads'], inpath, outpath)
 	p = sp.Popen(cmd, shell=True)
 	p.wait()
 
@@ -162,7 +162,7 @@ for index, file in enumerate(os.listdir(trim2_dir)):
 	for r in Bio.SeqIO.parse(inpath, format='fasta'):
 		genome_id = r.id.rsplit('_', 1)[0]
 		genome_to_gene[genome_id] = r
-	marker_length = len(genome_to_gene.values()[0].seq)
+	marker_length = len(list(genome_to_gene.values())[0].seq)
 	for genome_id in genome_ids:
 		if genome_id not in genome_to_gene:
 			msa_catted[genome_id] += "-" * marker_length
@@ -191,4 +191,3 @@ my_env["OMP_NUM_THREADS"] = "16"
 cmd = "FastTreeMP %s/concat.faa > %s/concat.tree" % (args['out_dir'], args['out_dir'])
 p = sp.Popen(cmd, shell=True, env=my_env)
 p.wait()
-

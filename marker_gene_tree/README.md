@@ -16,10 +16,12 @@ You should be able to run the following from your command line:
 `trimal`  
 `FastTreeMP`  
 `mcl`  
+`prodigal`  
 
 <b> Locate viral proteins of genomes from an individual clade </b>  
 
 * proteins should have headers with the format: `[GENOME_ID]_[PROTEIN_NUM]`
+* this is the format that Prodigal will produce  
 
 <b> Run pipeline </b>  
 `python marker_tree.py --in_faa proteins.faa --out_dir out`
