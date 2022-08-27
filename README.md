@@ -17,4 +17,6 @@
 For any other code/analysis inquiries, please open a github issue.
 
 If this code is useful, please cite:
-Nayfach et al. Metagenomic compendium of 189,680 DNA viruses from the human gut microbiome. 2021. (In Press).
+Nayfach et al. Metagenomic compendium of 189,680 DNA viruses from the human gut microbiome. 2021. (In Press).  
+
+Note: most of these scripts were written for Python 2. If you get an error using Python 3, try re-running with Python 2.
