@@ -1,4 +1,10 @@
-## Supporting code for manuscript: "Metagenomic compendium of 189,680 DNA viruses from the human gut microbiome"
+## Supporting materials for manuscript: "Metagenomic compendium of 189,680 DNA viruses from the human gut microbiome"
+
+### Data availability
+
+See: https://portal.nersc.gov/MGV/
+
+### Code availability
 
 1. [Viral detection pipeline](viral_detection_pipeline/README.md): Identify viral contigs >=1Kb using the pipeline described in the manuscript
 
@@ -19,7 +25,8 @@ For any other code/analysis inquiries, please open a github issue. Note: most of
 If this code is useful, please cite:
 Nayfach et al. Metagenomic compendium of 189,680 DNA viruses from the human gut microbiome. 2021. https://www.nature.com/articles/s41564-021-00928-6.  
 
-### For an updated version of the database, check out: https://github.com/snayfach/UHGV
+### Updated version of the database
+See: https://github.com/snayfach/UHGV
 
 
 
